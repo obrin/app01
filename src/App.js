@@ -3,7 +3,7 @@ import './App.css';
 import config from './utils/config'
 
 function App() {
-  const s = config.isEnabled('featureX')
+  const s = config.isEnabled('feature-test')
   console.log('---', s)
   return (
     <div className="App">
