@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import config from './utils/config'
 
 function App() {
+  const s = config.isEnabled('featureX')
+  console.log('---', s)
   return (
     <div className="App">
       <header className="App-header">
