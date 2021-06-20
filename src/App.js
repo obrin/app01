@@ -1,10 +1,15 @@
+import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
-import config from './utils/config'
 
-function App() {
-  const s = config.isEnabled('feature-test')
-  console.log('---', s)
+function App({ unleash }) {
+ const [toggles, setData] = useState({ isLearnReact: unleash.isEnabled('learn-react') });
+  useEffect(() => {
+    unleash.on('update', () => {
+      setData({ isLearnReact: unleash.isEnabled('learn-react') });
+    })
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {toggles.isLearnReact ? 'Learn React': 'Learn Angular'}
         </a>
       </header>
     </div>
