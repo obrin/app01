@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react'
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import unleash from './utils/config'
 
-function App({ unleash }) {
- const [toggles, setData] = useState({ isLearnReact: unleash.isEnabled('learn-react') });
+function App() {
+  const [toggles, setData] = useState({
+    isLearnReact: unleash.isEnabled('learn-react'),
+  })
   useEffect(() => {
     unleash.on('update', () => {
-      setData({ isLearnReact: unleash.isEnabled('learn-react') });
+      setData({ isLearnReact: unleash.isEnabled('learn-react') })
     })
-  }, []);
+  }, [])
 
   return (
     <div className="App">
@@ -23,11 +26,11 @@ function App({ unleash }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {toggles.isLearnReact ? 'Learn React': 'Learn Angular'}
+          {toggles.isLearnReact ? 'Learn React' : 'Learn Angular'}
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

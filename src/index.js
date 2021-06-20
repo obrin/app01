@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import unleash from './utils/config'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App unleash={unleash} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
